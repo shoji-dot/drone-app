@@ -1,10 +1,12 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "DroneOps",
   description: "ドローン業務管理アプリ",
   manifest: "/manifest.json",
+  themeColor: "#0f172a",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1",
   appleWebApp: {
     capable: true,
     statusBarStyle: "black-translucent",
@@ -13,15 +15,7 @@ export const metadata: Metadata = {
   icons: {
     apple: "/icons/icon-192x192.png",
   },
-};
-
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
-  themeColor: "#0f172a",
-};
+} as any;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
