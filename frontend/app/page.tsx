@@ -1575,7 +1575,7 @@ function InspectionTab() {
   const [form, setForm] = useState({ drone_id: "", inspector_name: "", weather: "", temperature: "", notes: "", result: "合格" });
   const [items, setItems] = useState<any[]>([]);
   const droneMap = Object.fromEntries(drones.map((d: any) => [d.id, d]));
-  const categories = [...new Set(items.map((i: any) => i.category))];
+  const categories = Array.from(new Set(items.map((i: any) => i.category)));
   const allChecked = items.every((i: any) => i.checked);
 
   async function openNew() {
