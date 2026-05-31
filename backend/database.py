@@ -2,8 +2,8 @@ import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-# Railway では DATABASE_URL 環境変数が自動セットされる。ローカルは SQLite にフォールバック
-DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./drone.db")
+# Railway では DATABASE_URL 環境変数が自動セットされる。空または未設定の場合は SQLite にフォールバック
+DATABASE_URL = os.environ.get("DATABASE_URL") or "sqlite:///./drone.db"
 
 # Railway の postgres:// を postgresql:// に修正
 if DATABASE_URL.startswith("postgres://"):
